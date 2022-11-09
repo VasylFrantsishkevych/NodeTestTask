@@ -2,10 +2,9 @@ const express = require('express');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-
 const { positionRouter } = require('./routes');
 const { mainErrorHandler } = require('./errors');
-const {PORT, MONGO_URL} = require("./configs/config");
+const { PORT, MONGO_URL } = require("./configs/config");
 
 const app = express();
 

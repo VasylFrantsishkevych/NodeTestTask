@@ -1,0 +1,12 @@
+const { Schema, model } = require('mongoose');
+
+const applicantSchema = new Schema({
+    email: { type: String, trim: true, lowercase: true, required: true },
+    categories: [{ type: String, required: true }],
+    japaneseKnowledge: { type: Boolean, required: true },
+    level: { type: String, trim: true, required: true },
+}, {
+    timestamps: true
+});
+
+module.exports = model('applicant', applicantSchema);

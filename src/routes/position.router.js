@@ -23,8 +23,14 @@ positionRouter.post(
 positionRouter.patch(
     '/:positionId',
     positionMiddleware.isPositionExist(),
-    positionMiddleware.validPositionBodyForUpdate,
     positionController.updatePositionById,
-)
+);
+
+positionRouter.delete(
+    '/:positionId',
+    positionMiddleware.isPositionExist(),
+    positionController.deletePositionById,
+);
+
 
 module.exports = positionRouter;

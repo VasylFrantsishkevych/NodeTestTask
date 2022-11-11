@@ -9,6 +9,10 @@ module.exports = {
         return Position.findById(id)
     },
 
+    filterByLevel(filterObj) {
+        return Position.find(filterObj);
+    },
+
     createPosition(positionObject) {
         return Position.create(positionObject)
     },
@@ -16,4 +20,8 @@ module.exports = {
     updatePositionById(positionId, japaneseRequired) {
         return Position.findOneAndUpdate({ _id: positionId }, {japaneseRequired}, { new: true });
     },
+
+    deletePositionById(positionId) {
+        return Position.deleteOne({ _id: positionId });
+    }
 }

@@ -23,8 +23,9 @@ module.exports = {
 
     validPositionBodyForUpdate: async (req, res, next) => {
         try {
+            const { japaneseRequired } = req.body
 
-            if (req.body.japaneseRequired !== 'japaneseRequired') {
+            if (japaneseRequired !== 'japaneseRequired') {
                 return next(new apiError('Body is not valid', statusCode.BAD_REQUEST));
             }
 

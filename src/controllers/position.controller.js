@@ -4,6 +4,7 @@ const { statusCode } = require('../constants');
 module.exports = {
     getAllPosition: async (req, res, next) => {
         try {
+            console.log(req);
             const positions = await positionService.getAllPosition();
 
             res.json(positions);
@@ -44,4 +45,16 @@ module.exports = {
             next(e);
         }
     },
+
+    deletePositionById: async (req, res, next) => {
+        try {
+            const { positionId } = req.params;
+
+            await positionService.deletePositionById(positionId);
+
+            res.sendStatus(statusCode.NO_CONTENT);
+        } catch (e) {
+            next(e);
+        }
+    }
 }
